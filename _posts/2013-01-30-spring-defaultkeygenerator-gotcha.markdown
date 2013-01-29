@@ -36,5 +36,5 @@ System.out.println(new DefaultKeyGenerator().generate(null, null, 1, 0)); // 163
 System.out.println(new DefaultKeyGenerator().generate(null, null, 0, 31)); // 16368
 {% endhighlight %}
 
-Looking at the documentation of `DefaultKeyGenerator`, there is a mention of using the arguments's hash codes, however I feel the risks should be better communicated. Too not jsut sound like a grumpy old fart, I [notified the Spring team](https://jira.springsource.org/browse/SPR-10237).
+Looking at the documentation of `DefaultKeyGenerator`, there is a mention of using the arguments's hash codes, however I feel the risks should be better communicated. To not just sound like a grumpy old fart, I [notified the Spring team](https://jira.springsource.org/browse/SPR-10237).
 
