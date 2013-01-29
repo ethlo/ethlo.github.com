@@ -17,10 +17,6 @@
       <div class="container">
         <h1>ethlo</h1>
         <h2>Desperate solutions require desperate measures</h2>
-
-        <section id="downloads">
-          <a href="https://github.com/ethlo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
       </div>
     </header>
 
@@ -28,10 +24,13 @@
       <section id="main_content">
         <h3>Welcome to ethlo</h3>
 
-<p>This blog will reflect some of the annoyances, solutions and ideas I encounter.</p>
-      </section>
-    </div>
-
-    
+  <ul>
+    {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <span>{{ post.date | date: "%b %Y" }}</span>
+        </li>
+    {% endfor %}
+  </ul>
   </body>
 </html>
