@@ -26,34 +26,8 @@
 		    <h2><a href="/2013/01/30/spring-defaultkeygenerator-gotcha.html">Spring DefaultKeyGenerator gotcha</a></h2>
 			<span>30 Jan 2013</span>
 		  </header>
-		<p>To speed things up I had applied the excellent <a href='http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/cache/annotation/Cacheable.html'>@Cacheable</a> annotation to a service method in our application (don&#8217;t miss the excellent performance analysis <a href='http://nurkiewicz.blogspot.com/2013/01/cacheable-overhead-in-spring.html'>here</a>, btw). However I had not paid too much attention to the parameters going into the cache key. I would have expected something like concatinated <code>toString()</code> or something similar, however the default is to use the <code>hashCode()</code> of each parameter and create another (32-bit) hash code. Obviously this can easily generate collisions as we shall soon see.</p>
-
-<p>The service method in my service class took two parameters, a long and an int:</p>
-
-<p><div class='highlight'><pre><code class='java'><span class='nd'>@Cacheable</span>
-<span class='n'>getData</span><span class='o'>(</span><span class='kt'>long</span> <span class='n'>a</span><span class='o'>,</span> <span class='kt'>int</span> <span class='n'>b</span><span class='o'>)</span>
-</code></pre></div></p>
-
-<p>The test failed intermittently with an assertion error that the data returned was wrong, which baffled me, until I had a look at the <a href='http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/cache/interceptor/DefaultKeyGenerator.html'>DefaultKeyGenerator</a> source code:</p>
-<div class='highlight'><pre><code class='java'><span class='kd'>public</span> <span class='n'>Object</span> <span class='nf'>generate</span><span class='o'>(</span><span class='n'>Object</span> <span class='n'>target</span><span class='o'>,</span> <span class='n'>Method</span> <span class='n'>method</span><span class='o'>,</span> <span class='n'>Object</span><span class='o'>...</span> <span class='n'>params</span><span class='o'>)</span> <span class='o'>{</span>
-	<span class='k'>if</span> <span class='o'>(</span><span class='n'>params</span><span class='o'>.</span><span class='na'>length</span> <span class='o'>==</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>{</span>
-		<span class='k'>return</span> <span class='o'>(</span><span class='n'>params</span><span class='o'>[</span><span class='mi'>0</span><span class='o'>]</span> <span class='o'>==</span> <span class='kc'>null</span> <span class='o'>?</span> <span class='n'>NULL_PARAM_KEY</span> <span class='o'>:</span> <span class='n'>params</span><span class='o'>[</span><span class='mi'>0</span><span class='o'>]);</span>
-	<span class='o'>}</span>
-	<span class='k'>if</span> <span class='o'>(</span><span class='n'>params</span><span class='o'>.</span><span class='na'>length</span> <span class='o'>==</span> <span class='mi'>0</span><span class='o'>)</span> <span class='o'>{</span>
-		<span class='k'>return</span> <span class='n'>NO_PARAM_KEY</span><span class='o'>;</span>
-	<span class='o'>}</span>
-	<span class='kt'>int</span> <span class='n'>hashCode</span> <span class='o'>=</span> <span class='mi'>17</span><span class='o'>;</span>
-	<span class='k'>for</span> <span class='o'>(</span><span class='n'>Object</span> <span class='n'>object</span> <span class='o'>:</span> <span class='n'>params</span><span class='o'>)</span> <span class='o'>{</span>
-		<span class='n'>hashCode</span> <span class='o'>=</span> <span class='mi'>31</span> <span class='o'>*</span> <span class='n'>hashCode</span> <span class='o'>+</span> <span class='o'>(</span><span class='n'>object</span> <span class='o'>==</span> <span class='kc'>null</span> <span class='o'>?</span> <span class='n'>NULL_PARAM_KEY</span> <span class='o'>:</span> <span class='n'>object</span><span class='o'>.</span><span class='na'>hashCode</span><span class='o'>());</span>
-	<span class='o'>}</span>
-	<span class='k'>return</span> <span class='n'>Integer</span><span class='o'>.</span><span class='na'>valueOf</span><span class='o'>(</span><span class='n'>hashCode</span><span class='o'>);</span>
-<span class='o'>}</span>
-</code></pre></div>
-<p>Truly simple input can be used to expose the problem:</p>
-<div class='highlight'><pre><code class='java'><span class='n'>System</span><span class='o'>.</span><span class='na'>out</span><span class='o'>.</span><span class='na'>println</span><span class='o'>(</span><span class='k'>new</span> <span class='n'>DefaultKeyGenerator</span><span class='o'>().</span><span class='na'>generate</span><span class='o'>(</span><span class='kc'>null</span><span class='o'>,</span> <span class='kc'>null</span><span class='o'>,</span> <span class='mi'>1</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>));</span> <span class='c1'>// 16368</span>
-<span class='n'>System</span><span class='o'>.</span><span class='na'>out</span><span class='o'>.</span><span class='na'>println</span><span class='o'>(</span><span class='k'>new</span> <span class='n'>DefaultKeyGenerator</span><span class='o'>().</span><span class='na'>generate</span><span class='o'>(</span><span class='kc'>null</span><span class='o'>,</span> <span class='kc'>null</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>31</span><span class='o'>));</span> <span class='c1'>// 16368</span>
-</code></pre></div>
-<p>Looking at the documentation of <code>DefaultKeyGenerator</code>, there is a mention of using the arguments&#8217;s hash codes, however I feel the risks should be better communicated.</p>
+		To speed things up I had applied the excellent @Cacheable annotation to a service method in our application (don&#8217;t miss the excellent performance analysis here, btw). However I had not paid too much attention to the parameters going into the cache key. I would have expected something like concatinated toString() or something similar, however the default is to use the hashCode() of each parameter and create another (32-bit) hash code. Obviously this can easily generate...<br>
+            <a href="/2013/01/30/spring-defaultkeygenerator-gotcha.html">Read more...</a><br><br>
   	
 
       </section>
