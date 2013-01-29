@@ -1,42 +1,45 @@
 ---
 layout: default
-title: ethlo - Desperate solutions require desperate measures
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ethlo - Desperate solutions require desperate measures</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Slate is a responsive theme for GitHub Pages" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/styles.css">
+    <title>ethlo - Simplicity is the ultimate sophistication</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">ethlo</h1>
-        <p class="header">Desperate solutions require desperate measures</p>
-      </header>
-      <section>
-        	<ul id="posts">
-  	{% for post in site.posts %}
-    		<li>
-      			<a href="{{ post.url }}">{{ post.title }}</a>
-      			<span>{{ post.date | date: "%b %Y" }}</span>
-    		</li>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title">ethlo</h1>
+          <h2 id="project_tagline">Simplicity is the ultimate sophistication</h2>
+        </header>
+    </div>
+
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+         {% for post in site.posts %}
+		  <header id="article-header">
+		    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+			<span>{{ post.date | date: "%d %b %Y" }}</span>
+		  </header>
+		{{ post.content }}
   	{% endfor %}
-	</ul>
+
       </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </div>
+
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Copyright ethlo/Morten Haraldsen 2003 - 2013</p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->		
+
   </body>
 </html>
