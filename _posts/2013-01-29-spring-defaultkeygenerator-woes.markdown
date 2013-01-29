@@ -1,6 +1,7 @@
 ---
 layout: post
-title: ethlo - Spring DefaultKeyGenerator @Cacheable woes
+title: Spring DefaultKeyGenerator @Cacheable woes
+blog: true
 ---
 <big>Spring DefaultKeyGenerator @Cacheable woes</big>
 <p>
