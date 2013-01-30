@@ -1,29 +1,9 @@
 ---
 layout: default
+title: Home
 ---
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Slate is a responsive theme for GitHub Pages" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/styles.css">
-    <title>ethlo - Simplicity is the ultimate sophistication</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">ethlo</h1>
-          <h2 id="project_tagline">Simplicity is the ultimate sophistication</h2>
-        </header>
-    </div>
-
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+{% include header.html %}
+<article id="article-content">
          {% for post in site.posts limit 20 %}
 		  <header id="article-header">
 		    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
@@ -32,30 +12,5 @@ layout: default
 		{{ post.content | strip_html | truncatewords:75}}<br>
             <a href="{{ post.url }}">Read more...</a><br><br>
   	{% endfor %}
-
-      </section>
-    </div>
-
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Copyright ethlo/Morten Haraldsen 2003 - 2013</p>
-      </footer>
-    </div>
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38070357-1']);
-  _gaq.push(['_setDomainName', 'ethlo.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-  </body>
-</html>
+</article>
+{% include footer.html %}

@@ -35,9 +35,50 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+.highlight {
+    font-size:12px;
+}
+
 #comments {
 	padding-top:50px;
          background: url('/images/bg_hr.png') repeat-x top;
+}
+
+#menu {
+	width:220px;
+	float:left;
+}
+
+#menu ul {
+	margin:0;
+	padding:0;
+	padding-bottom:16px;font
+	list-style: none;
+}
+  
+#menu li {
+  font-size:14px;
+  text-decoration: none;
+  color: #000;
+  display: block; 
+  margin-left:0px;
+  padding-left:0;
+}
+
+.menuheader {
+   	font-weight:700;
+	padding-bottom:10px;
+         background: url('/images/bg_hr.png') repeat-x bottom;
+}
+
+#article-content {
+	margin-left:240px;
+	background:#FFF;
+	padding:16px 26px 26px 26px;
+	box-shadow: 6px 6px 5px #888;
+	border-radius: 5px;
+	border-left:1px solid #CCC;
+	border-top:1px solid #CCC;
 }
 
 ol, ul {
@@ -64,7 +105,7 @@ body {
   box-sizing: border-box;
   color:#373737;
   background: #212121;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -173,7 +214,7 @@ pre, code {
   background-color: #fff;
 
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  font-size: 14px;
+  font-size: 12px;
 
   border-radius: 2px;
   -moz-border-radius: 2px;
