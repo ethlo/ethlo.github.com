@@ -22,7 +22,7 @@
       <section id="main_content" class="inner">
 
    <div id="menu">
-	<div class="menuheader">Articles</div>
+	<div class="menuheader">Articles <a href="/atom.xml"><img src="/images/feed.png" /></a></div>
 	<ul>
 	{% for post in site.posts limit 20 %}
 		  <li><a title="{{ post.title | strip_html }}" href="{{ post.url }}">{{ post.title | strip_html | truncate:30}}</a>
