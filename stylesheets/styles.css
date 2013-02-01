@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
 Slate Theme for Github Pages
 by Jason Costello, @jsncostello
 *******************************************************************************/
@@ -135,11 +135,11 @@ h2 a {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 h4 {
-  font-size: 21px;
+  font-size: 14px;
 }
 
 h5 {
@@ -155,7 +155,9 @@ p {
 }
 
 footer p {
-  color: #f2f2f2;
+  color: #d2d2d2;
+  text-align:center;
+  margin-left:220px;
 }
 
 a {
@@ -420,11 +422,11 @@ Small Device Styles
   }
 
   h3 {
-    font-size: 19px;
+    font-size: 14px;
   }
 
   h4 {
-    font-size: 18px;
+    font-size: 12px;
   }
 
   h5 {
