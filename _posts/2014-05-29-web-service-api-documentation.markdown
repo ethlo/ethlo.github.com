@@ -24,8 +24,7 @@ The strategy I have used is to create an independent model using an APT processo
 
 Example Java code:
 
-{% highlight java%}
-
+```java
 @Transactional
 @Endpoint
 @RequestMapping("/basepath")
@@ -62,13 +61,11 @@ public class ExampleEndpoint
         ...
     }
 }
-
-{% highlight %}
+```
 
 The produces JSON file:
 
-{% highlight javascript%}
-
+``` javascript
 {
   "com.ethlo.ws.ExampleEndpoint" : {
     "packageName" : "com.ethlo.ws",
@@ -188,10 +185,9 @@ The produces JSON file:
     } ]
   }
 }
+```
 
-{% highlight %}
-
-Then I use an Angular application to render it. Simple to integrate and and adds minimal time to the compilation time. 
+This solution is easy to integrate and adds minimal time to the compilation time. It even extracts the JSON schema from the method parameters and return value. 
 
 <p><a href="http://github.com/ethlo/api-ui">ethlo API-UI</a> project example rendering:</p>
 <div>
