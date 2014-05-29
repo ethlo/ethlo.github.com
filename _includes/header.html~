@@ -29,13 +29,9 @@
   	{% endfor %}
 	</ul>
 
-  <div class="menuheader">Projects</div>
+	<div class="menuheader">Projects</div>
 	<ul>
-		<li><a href="http://github.com/ethlo/eclipselink-maven-plugin">Eclipselink maven plugin</a></li>
-		<li><a href="http://github.com/ethlo/api-documenter">API documenter</a></li>
-		<li><a href="http://github.com/ethlo/api-ui">API documenter UI</a></li>
-		<li><a href="http://github.com/ethlo/kvapi">Key/Value API</a></li>
-		<li><a href="http://github.com/ethlo/jsons2xsd">Json Schema to Xml Schema</a></li>
+		<li><a href="http://github.com/ethlo/eclipselink-maven-plugin">eclipselink-maven-plugin</a></li>
 	</ul>
 
 	<div class="menuheader">About</div>
