@@ -43,7 +43,6 @@ class HtpasswdAuth
                     $hashed = crypt($password, $salt);
                     return $hashed == $filePasswd;
                 }
-                throw new Exception('Unsupported hash type: ' . $filePasswd);
             }
         }
         return false;
