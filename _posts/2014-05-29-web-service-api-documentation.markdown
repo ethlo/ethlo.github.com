@@ -192,7 +192,7 @@ This solution is easy to integrate and adds minimal time to the compilation time
 
 <p><a href="http://github.com/ethlo/api-ui">ethlo api-ui</a> project example rendering:</p>
 <div>
-    <a style="float:left;" href="https://cloud.githubusercontent.com/assets/1384689/3119659/dcf01cf6-e748-11e3-8637-433cd72abb49.png" target="_blank"><img width="960" height="540"       src="https://cloud.githubusercontent.com/assets/1384689/3119659/dcf01cf6-e748-11e3-8637-433cd72abb49.png"/></a>
+    <a style="float:left; margin-left:-200px;" href="https://cloud.githubusercontent.com/assets/1384689/3119659/dcf01cf6-e748-11e3-8637-433cd72abb49.png" target="_blank"><img width="960" height="540"       src="https://cloud.githubusercontent.com/assets/1384689/3119659/dcf01cf6-e748-11e3-8637-433cd72abb49.png"/></a>
 
-    <a style="float:left;" href="https://cloud.githubusercontent.com/assets/1384689/3119660/dcf04ea6-e748-11e3-80d7-6c1e3a7ee4ba.png" target="_blank"><img width="960" height="540" src="https://cloud.githubusercontent.com/assets/1384689/3119660/dcf04ea6-e748-11e3-80d7-6c1e3a7ee4ba.png"/></a>
+    <a style="float:left; margin-left:-200px;" href="https://cloud.githubusercontent.com/assets/1384689/3119660/dcf04ea6-e748-11e3-80d7-6c1e3a7ee4ba.png" target="_blank"><img width="960" height="540" src="https://cloud.githubusercontent.com/assets/1384689/3119660/dcf04ea6-e748-11e3-80d7-6c1e3a7ee4ba.png"/></a>
 </div>
