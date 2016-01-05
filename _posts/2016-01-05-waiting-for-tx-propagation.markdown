@@ -27,14 +27,15 @@ private SomeNotificationService delegate;
 
 public void process(final Object event)
 {
-  TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter()
-        {
-            @Override
-            public void afterCommit()
-            {
-                delegate.sendEvent(event);
-            }
-        }); 
+  TransactionSynchronizationManager.registerSynchronization(
+  	new TransactionSynchronizationAdapter()
+   {
+     @Override
+     public void afterCommit()
+     {
+       delegate.sendEvent(event);
+     }
+   }); 
 }
 
 {% endhighlight %}
